@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
 
     <head>
         <meta charset="UTF-8">
@@ -11,53 +11,64 @@
         
         <header>
             <nav>
-                | <a href="">НАЧАЛО</a> |
-                <a href="pages/about.html">ЗА НАС</a> | 
-                <a href="pages/contact.html">КОНТАКТИ</a> |
+                | <a href="../index.html">НАЧАЛО</a> |
+                <a href="../pages/about.html">ЗА НАС</a> | 
+                <a href="../pages/contact.html">КОНТАКТИ</a> |
             </nav>
             <hr>
         </header>
 
         <main>
 
-            <h1>Това е началото на нашия бранд!</h1>
+            <section>
+
+                <h1>Свържете се с нас</h1>
+
+                <p>
+                    Ако имате въпроси относно нашите освежаващи млечни напитки
+                    можете да се свържете с нас чрез формата по-долу.
+                    Ще се радваме да получим вашето мнение или препоръка.
+                </p>
+
+            </section>
 
             <section>
 
-                <article>
-                    <h3>Tables</h3>
+                <h2>Форма за контакт</h2>
 
-                    <table>
+                <form>
 
-                        <thead>
-                            <tr>
-                                <th>Номер</th>
-                                <th>Изпит 1</th>
-                                <th>Изпит 2</th>
-                                <th>Изпит 3</th>
-                                <th>Крайна оценка</th>
-                            </tr>
-                        </thead>
+                    <p>
+                        <label for="name">Име:</label>
+                        <input type="text" id="name" name="name" required>
+                    </p>
 
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>5.50</td>
-                                <td>4</td>
-                                <td>3</td>
-                                <td>4.50</td>
-                            </tr>
-                        </tbody>
+                    <p>
+                        <label for="email">Имейл:</label>
+                        <input type="email" id="email" name="email" required>
+                    </p>
 
-                        <tfoot>
-                            <tr>
-                                <td colspan="5">Край на таблица</td>
-                            </tr>
-                        </tfoot>
+                    <p>
+                        <label for="message">Съобщение:</label>
+                        <textarea name="message" id="message" rows="5" cols="30"></textarea>
+                    </p>
 
-                    </table>
+                    <p>
+                        <button type="submit">Изпрати</button>
+                    </p>
 
-                </article>
+                </form>
+
+            </section>
+
+            <section>
+
+                <h2>Данни за контакт</h2>
+
+                <ul>
+                    <li>Имейл: s236267@stud.uni-ruse.bg</li>
+                    <li>Град: Русе</li>
+                </ul>
 
             </section>
 
@@ -65,7 +76,7 @@
 
         <footer>
             <hr>
-            За контакт: s236267@stud.uni-ruse.bg
+            &copy; 2026 SipJoy | За контакт: s236267@stud.uni-ruse.bg
         </footer>
 
     </body>
