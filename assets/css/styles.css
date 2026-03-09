@@ -1,0 +1,33 @@
+body {
+    background-color: #f8f8f8
+}
+
+/* HEADER */
+
+header {
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    font-weight: bold;
+}
+
+/* MAIN */
+
+main {
+    padding: 40px;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #eee;
+}
