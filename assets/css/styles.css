@@ -9,7 +9,7 @@ header {
     padding: 20px;
 }
 
-nav ul {
+nav {
     display: flex;
     gap: 20px;
 }
@@ -24,10 +24,55 @@ main {
     padding: 40px;
 }
 
+section {
+    margin-bottom: 30px;
+}
+
+form {
+    max-width: 400px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.home-layout {
+    display: flex;
+    gap: 30px;
+}
+
+article {
+    flex: 1;
+}
+
 /* FOOTER */
 
 footer {
     text-align: center;
     padding: 20px;
     background-color: #eee;
+}
+
+@media (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+    }
+
+    .home-layout {
+        flex-direction: column;
+    }
+
 }
