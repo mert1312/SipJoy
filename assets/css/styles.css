@@ -1,78 +1,69 @@
+/* === BRAND COLOR === */
+:root {
+    --bg-main: #1e1e1e;
+    --bg-secondary: #2a2a2a;
+
+    --pink: #ffb3c1;
+    --yellow: #ffe8a3;
+    --brown: #ae8b69;
+    --green: #beebc1;
+
+    --text-main: #ffffff;
+    --text-secondary: #cccccc;
+}
+
+/* === GLOBAL === */
 body {
-    background-color: #f8f8f8
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Open Sans', sans-serif;
 }
 
-/* HEADER */
-
-header {
-    background-color: #ffffff;
-    padding: 20px;
+/* HEADINGS */
+h1, h2, h3 {
+    font-family: 'Nunito', sans-serif;
 }
 
-nav {
-    display: flex;
-    gap: 20px;
+/* NAVBAR */
+.navbar {
+    background-color: var(--bg-secondary);
 }
 
-nav a {
-    font-weight: bold;
+.nav-link {
+    color: var(--text-main) !important;
 }
 
-/* MAIN */
-
-main {
-    padding: 40px;
+.nav-link:hover {
+    color: var(--pink) !important;
 }
 
-section {
-    margin-bottom: 30px;
+/* SECTIONS */
+.section-box {
+    background-color: var(--bg-secondary);
+    padding: 30px;
+    border-radius: 15px;
 }
 
-form {
-    max-width: 400px;
+/* PRODUCT COLORS */
+.pink { background-color: var(--pink); color: black; }
+.yellow { background-color: var(--yellow); color: black; }
+.brown { background-color: var(--brown); color: black; }
+.green { background-color: var(--green); color: black; }
+
+/* BUTTON */
+.btn-custom {
+    background-color: var(--pink);
+    border: none;
+    color: black;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-}
-
-button {
-    padding: 10px 15px;
-    cursor: pointer;
-}
-
-.home-layout {
-    display: flex;
-    gap: 30px;
-}
-
-article {
-    flex: 1;
+.btn-custom:hover {
+    background-color: var(--yellow);
 }
 
 /* FOOTER */
 
 footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #eee;
-}
-
-@media (max-width: 768px) {
-
-    nav {
-        flex-direction: column;
-    }
-
-    .home-layout {
-        flex-direction: column;
-    }
-
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
 }
