@@ -1,38 +1,9 @@
 /* RESET CSS */
 
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
 body {
     line-height: 1.5;
-    font-family: Arial, sans-serif;
-}
-
-img {
-    max-width: 100%;
-    display: block;
-}
-
-ul {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-@media (max-width: 768px) {
-
-    nav {
-        flex-direction: column;
-    }
-
-    .home-layout {
-        flex-direction: column;
-    }
-
 }
