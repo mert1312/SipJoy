@@ -1,9 +1,47 @@
 /* RESET CSS */
 
-* {
+/* Box sizing */
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
+/* Remove default margin ONLY where needed */
 body {
+    margin: 0;
     line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Lists */
+ul, ol {
+    padding-left: 1.5rem;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+}
+
+/* Form elements */
+input, button, textarea, select {
+    font: inherit;
+}
+
+/* Buttons */
+button {
+    cursor: pointer;
+}
+
+/* Remove ugly default styles */
+h1, h2, h3, h4, h5, h6, p {
+    margin-top: 0;
 }
