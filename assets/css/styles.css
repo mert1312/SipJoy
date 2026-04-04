@@ -37,6 +37,16 @@ h1, h2, h3 {
     color: var(--pink) !important;
 }
 
+.navbar-brand img {
+    height: 40px;
+    width: auto;
+    transition: 0.3s;
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.05);
+}
+
 /* SECTIONS */
 .section-box {
     background-color: var(--bg-secondary);
@@ -49,6 +59,85 @@ h1, h2, h3 {
 .yellow { background-color: var(--yellow); color: black; }
 .brown { background-color: var(--brown); color: black; }
 .green { background-color: var(--green); color: black; }
+
+/* === PRODUCT CARDS === */
+.product-card {
+    border-radius: 20px;
+    overflow: hidden;
+    color: white;
+    background: none !important;
+    padding: 20px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.product-card .btn {
+    border-radius: 25px;
+    font-weight: 500;
+}
+
+.product-card img {
+    max-height: 160px;
+    object-fit: contain;
+}
+
+/* Hover */
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.product-card .btn:hover {
+    filter: brightness(1.1);
+}
+
+/* Strawberry card */
+.card-strawberry {
+    background: linear-gradient(135deg, #f28b9c, #F08396)  !important;
+    box-shadow: 0 10px 30px rgba(242, 139, 156, 0.35);
+}
+
+.card-strawberry .btn {
+    background-color: #EC5372;
+    color: #ffffff;
+    border-color: #ffb3c1;
+}
+
+/* Banana card */
+.card-banana {
+    background: linear-gradient(135deg, #F4D06F, #F1CB67) !important;
+    box-shadow: 0 10px 30px rgba(244, 208, 111, 0.35);
+}
+
+.card-banana .btn {
+    background-color: #E8B94E;
+    color: #ffffff;
+    border-color: #ffe8a3;
+}
+
+/* Chocolate */
+.card-choco {
+    background: linear-gradient(135deg, #A47551, #9A6D4B) !important;
+    box-shadow: 0 10px 30px rgba(164, 117, 81, 0.4);
+}
+
+.card-choco .btn {
+    background-color: #7A5238;
+    color: #ffffff;
+    border-color: #ae8b69;
+}
+
+/* Vegan */
+.card-vegan {
+    background: linear-gradient(135deg, #8FBF9F, #83C193) !important;
+    box-shadow: 0 10px 30px rgba(143, 200, 159, 0.35);
+}
+
+.card-vegan .btn {
+    background-color: #5FAA6F;
+    color: #ffffff;
+    border-color: #beebc1;
+}
 
 /* BUTTON */
 .btn-custom {
