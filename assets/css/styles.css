@@ -1,189 +1,491 @@
-/* === BRAND COLOR === */
+/* Променливи за лесна промяна */
 :root {
-    --bg-main: #1e1e1e;
-    --bg-secondary: #2a2a2a;
-
-    --pink: #ffb3c1;
-    --yellow: #ffe8a3;
-    --brown: #ae8b69;
-    --green: #beebc1;
-
-    --text-main: #ffffff;
-    --text-secondary: #cccccc;
+    --bg-dark: #0d0d0d;
+    --surface: #1a1a1a;
+    /* Топло златисто - символ на качество и енергия */
+    --accent: #ffb703; 
+    --accent-hover: #ff9f1c; 
+    --text-light: #f8f9fa;
+    --text-secondary: #a0a0a0;
+    --glass: rgba(255, 255, 255, 0.05);
 }
 
-/* === GLOBAL === */
 body {
-    background-color: var(--bg-main);
-    color: var(--text-main);
+    background-color: var(--bg-dark);
+    color: var(--text-light);
     font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
 }
 
-/* HEADINGS */
-h1, h2, h3 {
+h1, h2, h3, .navbar-brand {
     font-family: 'Nunito', sans-serif;
+    letter-spacing: -1px;
 }
 
-/* === Glass navbar === */
+/* Навигация */
 .navbar {
-    background: linear-gradient(
-        to bottom,
-        rgba(30, 30, 30, 0.7),
-        rgba(30, 30, 30, 0.4)
-    );
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    background: rgba(13, 13, 13, 0.7) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    transition: all 0.4s ease-in-out;
+    padding: 15px 0;
 }
 
-.nav-link {
-    color: #B0B0B0;
-    position: relative;
-    transition: 0.3s;
-}
-
-.nav-link:hover {
-    color: #FFFFFF;
-}
-
-.nav-link::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 0%;
-    height: 2px;
-    background-color: #C9A27E;
-    transition: 0.3s;
-}
-
-.nav-link:hover::after {
-    width: 100%;
+/* Състояние при скролване (активирано от JS) */
+.navbar.navbar-scrolled {
+    background: rgba(13, 13, 13, 0.95) !important;
+    padding: 10px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(255, 183, 3, 0.2); /* Тънка златна линия при скрол */
 }
 
 .navbar-brand img {
-    height: 40px;
-    width: auto;
-    transition: 0.3s;
+    height: 40px; /* Елегантно и малко */
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 0 5px rgba(255,183,3,0.3));
 }
 
-.navbar-brand img:hover {
-    transform: scale(1.05);
+.navbar-brand:hover img {
+    transform: scale(1.1);
 }
 
-/* SECTIONS */
-.section-box {
-    background-color: var(--bg-secondary);
-    padding: 30px;
-    border-radius: 15px;
+.nav-link {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    color: var(--text-light) !important;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+
+    position: relative; /* Важно, за да позиционираме линията спрямо текста */
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
 }
 
-/* PRODUCT COLORS */
-.pink { background-color: var(--pink); color: black; }
-.yellow { background-color: var(--yellow); color: black; }
-.brown { background-color: var(--brown); color: black; }
-.green { background-color: var(--green); color: black; }
+/* Създаваме невидимата линия под всеки линк */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0; /* В началото е широка 0% */
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent); /* Нашето златисто */
+    transition: width 0.3s ease; /* Плавна анимация на разпъване */
+}
 
-/* === PRODUCT CARDS === */
-.product-card {
-    border-radius: 20px;
+/* Когато посочим с мишката (hover) или линкът е активен */
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%; /* Линията се разпъва до края на думата */
+}
+
+.nav-link:hover {
+    color: var(--accent) !important;
+}
+
+/* === HERO СЕКЦИЯ === */
+.hero-section {
+    height: 90vh;
+    position: relative;
     overflow: hidden;
-    color: white;
-    background: none !important;
-    padding: 20px;
-    text-align: center;
-    transition: 0.3s;
+    background-color: #000; /* Резервен цвят */
 }
 
-.product-card .btn {
-    border-radius: 25px;
-    font-weight: 500;
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Видеото запълва целия екран без разтягане */
+    filter: brightness(0.6) contrast(1.1); /* Прави видеото малко по-тъмно */
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 100%);
+    z-index: 2;
+}
+
+/* About hero */
+.about-hero {
+    height: 65vh; /* Малко по-ниско от началната страница */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    
+    /* Слагаме ДВА градиента за максимален ефект: 
+       1. Единият затъмнява цялата снимка леко, за да се чете текста.
+       2. Вторият прелива в плътно черно най-отдолу. */
+    background: 
+        linear-gradient(to bottom, rgba(13, 13, 13, 0.3) 0%, rgba(13, 13, 13, 1) 100%), 
+        url('../media/images/about-hero.jpg');
+    
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll; /* Можеш да пробваш 'fixed' за паралакс ефект */
+
+    /* Това гарантира, че няма да има бяла линия между Hero-то и следващата секция */
+    margin-bottom: -1px;
+}
+
+/* Фина златиста линия под заглавието за консистентност */
+.title-separator {
+    width: 60px;
+    height: 3px;
+    background: var(--accent);
+    margin: 20px auto;
+    border-radius: 2px;
+}
+
+/* Products hero */
+.products-hero {
+    height: 75vh;
+    display: flex;
+    align-items: center; /* Центрира текста вертикално */
+    position: relative;
+    overflow: hidden;
+
+    /* Пътят до новото хоризонтално изображение */
+    background-image: 
+        linear-gradient(to right, rgba(13, 13, 13, 0.5) 0%, rgba(13, 13, 13, 0) 50%), /* Затъмнява леко зад текста */
+        linear-gradient(to bottom, rgba(13, 13, 13, 0) 50%, rgba(13, 13, 13, 1) 100%), /* Прелива в черното отдолу */
+        url('../media/images/products-hero.jpg'); /* Увери се, че името на файла съвпада */
+
+    background-size: cover;
+    background-position: center right; /* Важно: позиционира бутилките вдясно */
+    background-repeat: no-repeat;
+}
+
+/* Стил за градиентния текст (ако вече го нямаш от началната страница) */
+.text-gradient {
+    background: linear-gradient(45deg, #ffb703, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+/* Стил за логото, за да изпъква върху видеото */
+.hero-logo {
+    max-width: 200px;
+    filter: drop-shadow(0 0 15px rgba(0,0,0,0.5));
+}
+
+/* Glassmorphism кутия */
+.glass-box {
+    background: var(--glass);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 183, 3, 0.1);
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #ffffff 30%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+/* Glass карта за формата */
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+}
+
+/* Стил за полетата за писане */
+.custom-input {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+    padding: 12px 15px;
+    border-radius: 10px;
+}
+
+.custom-input:focus {
+    border-color: #ffb703 !important;
+    box-shadow: 0 0 10px rgba(255, 183, 3, 0.2) !important;
+}
+
+/* Продуктови карти */
+.product-card {
+    background: var(--surface);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid transparent;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-15px);
+    border-color: var(--accent);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.img-wrapper {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-wrapper img {
+    max-height: 100%;
+    filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5));
 }
 
 .product-card img {
-    max-height: 160px;
+    max-height: 250px; /* Регулирай според нуждите */
+    width: auto;
     object-fit: contain;
+    
+    /* Тази магия ще накара кутията да "свети" леко и да се отдели от черния фон */
+    filter: drop-shadow(0 10px 20px rgba(255, 77, 109, 0.2)); 
+    
+    transition: all 0.5s ease;
 }
 
-/* Hover */
-.product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+/* Специфично сияние според категорията */
+.card-strawberry:hover img {
+    transform: scale(1.04) rotate(-3deg); /* Леко уголемяване и накланяне */
+    filter: drop-shadow(0 10px 25px rgba(255, 77, 109, 0.4)); /* Розово */
 }
 
-.product-card .btn:hover {
-    filter: brightness(1.2);
+.card-banana:hover img {
+    transform: scale(1.04) rotate(-3deg); /* Леко уголемяване и накланяне */
+    filter: drop-shadow(0 10px 25px rgba(255, 232, 163, 0.4)); /* Жълто */
 }
 
-/* Strawberry card */
-.card-strawberry {
-    background: linear-gradient(135deg, #f28b9c, #F08396)  !important;
-    box-shadow: 0 10px 30px rgba(242, 139, 156, 0.35);
+.card-vegan:hover img {
+    transform: scale(1.04) rotate(-3deg); /* Леко уголемяване и накланяне */
+    filter: drop-shadow(0 10px 25px rgba(190, 235, 193, 0.4)); /* Зелено */
 }
 
-.card-strawberry .btn {
-    background-color: #EC5372;
-    color: #ffffff;
-    border-color: #ffb3c1;
+/* Бутони */
+.btn-primary {
+    /* Полупрозрачен златист фон */
+    background: rgba(255, 183, 3, 0.15); 
+    
+    /* МАГИЯТА: Размива всичко зад бутона */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    /* Тънка, фина рамка, която имитира ръб на стъкло */
+    border: 1px solid rgba(255, 183, 3, 0.3);
+    
+    color: var(--accent) !important; /* Текстът е златист, за да се чете */
+    border-radius: 50px;
+    padding: 15px 40px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
-/* Banana card */
-.card-banana {
-    background: linear-gradient(135deg, #F4D06F, #F1CB67) !important;
-    box-shadow: 0 10px 30px rgba(244, 208, 111, 0.35);
+.btn-primary:hover {
+    /* При посочване "стъклото" се запълва със светлина */
+    background: rgba(255, 183, 3, 0.8);
+    color: #000 !important; /* Текстът става черен за контраст */
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255, 183, 3, 0.4);
+    border-color: var(--accent);
 }
 
-.card-banana .btn {
-    background-color: #E8B94E;
-    color: #ffffff;
-    border-color: #ffe8a3;
+.btn-outline-light {
+    border-radius: 50px;
+    border-width: 2px;
 }
 
-/* Chocolate */
-.card-choco {
-    background: linear-gradient(135deg, #A47551, #9A6D4B) !important;
-    box-shadow: 0 10px 30px rgba(164, 117, 81, 0.4);
+.card-btn {
+    background: transparent;
+    color: var(--accent); /* Текстът е златист от самото начало */
+    border: 1px solid rgba(255, 183, 3, 0.4); /* Фина златна рамка */
+    border-radius: 50px; /* Заоблени като Hero бутона за консистенция */
+    padding: 10px 25px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.card-choco .btn {
-    background-color: #7A5238;
-    color: #ffffff;
-    border-color: #ae8b69;
+.card-btn:hover {
+    background-color: var(--accent); /* Запълва се със злато */
+    color: #000 !important; /* Текстът става черен при ховър */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 183, 3, 0.3);
+    border-color: var(--accent);
 }
 
-/* Vegan */
-.card-vegan {
-    background: linear-gradient(135deg, #8FBF9F, #83C193) !important;
-    box-shadow: 0 10px 30px rgba(143, 200, 159, 0.35);
+/* Специална адаптация на бутона само когато е вътре в products-hero */
+.products-hero .btn-primary {
+    /* Правим фона на бутона малко по-тъмен/наситен, за да се вижда на белия фон */
+    background: rgba(13, 13, 13, 0.7); 
+    border-color: var(--accent);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
 }
 
-.card-vegan .btn {
-    background-color: #5FAA6F;
-    color: #ffffff;
-    border-color: #beebc1;
+.products-hero .btn-primary:hover {
+    background: var(--accent); /* При ховър става напълно златист */
+    color: #000 !important;
 }
 
-/* BUTTON */
-.btn-custom {
-    background-color: var(--pink);
-    border: none;
-    color: black;
+/* Контактна Hero Секция */
+.contact-hero {
+    height: 45vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* Използваме новото Ripple изображение */
+    background: 
+        linear-gradient(to bottom, rgba(13, 13, 13, 0) 60%, rgba(13, 13, 13, 1) 100%), 
+        url('../media/images/contact-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.btn-custom:hover {
-    background-color: var(--yellow);
+/* Стилизиране на иконите за вкусове */
+.flavor-icons .icon-item {
+    transition: transform 0.3s ease;
+    opacity: 0.8;
 }
 
-/* FOOTER */
+.flavor-icons .icon-item i {
+    font-size: 1.2rem; /* Размер на иконата */
+    display: block;
+    margin-bottom: 2px;
+}
 
-footer {
-    background-color: var(--bg-secondary);
+.flavor-icons .icon-item span {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     color: var(--text-secondary);
+}
+
+.flavor-icons .icon-item:hover {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+/* Стил за новите икони от Flaticon */
+.flavor-img {
+    width: 35px; /* Малък, елегантен размер */
+    height: 35px;
+    object-fit: contain;
+    margin-bottom: 5px;
+    transition: transform 0.3s ease;
+    /* Ако иконите са твърде ярки, можеш да им дадеш лек shadow */
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+}
+
+.icon-item:hover .flavor-img {
+    transform: scale(1.2) rotate(5deg); /* Леко завъртане за игривост */
+}
+
+.icon-item span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+/* Специален цвят за шоколад и лешник, който Bootstrap няма */
+.text-brown {
+    color: #ae8b69 !important;
+}
+
+/* Footer */
+.footer {
+    background-color: #050505; /* Още по-тъмно за разграничаване */
+    padding: 50px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer h5, .footer p {
+    /* Правим текста чисто бял или много светло сив, за да се чете веднага */
+    color: var(--text-light) !important; 
+    opacity: 1 !important;
+}
+
+/* Специално за твоя слоган във футера */
+.footer .slogan {
+    color: var(--accent) !important; /* Слагаме златистото и тук за акцент */
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+/* Помощни класове за иконите в About страницата */
+.var-accent-color {
+    color: var(--accent) !important;
+}
+
+/* Стилизиране на секцията "Защо да изберете нас" */
+.glass-box i {
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.glass-box div:hover i {
+    transform: scale(1.2);
+}
+
+/* Специфични цветове за иконите (ако искаш да са цветни, както в HTML-а) */
+.text-success { color: #2ec4b6 !important; } /* Свежо ментово за веган */
+.text-danger { color: #e71d36 !important; }  /* Пулсиращо червено */
+.text-primary { color: #4361ee !important; } /* Синьо за рециклиране */
+.text-warning { color: var(--accent) !important; } /* Златисто за енергия */
+
+/* Социални линкове */
+.social-link {
+    font-size: 1.5rem;
+    color: #ffb703;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-5px);
+    color: white;
+}
+
+/* FAQ фон */
+.bg-darker {
+    background-color: #080808;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: rgba(255, 183, 3, 0.1);
+    color: #ffb703;
+}
+
+.accordion-button::after {
+    filter: invert(1); /* Прави иконата на акордеона бяла */
 }

@@ -4,41 +4,51 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SipJoy | Продукти</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700&family=Open+Sans&subset=cyrillic&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700&family=Open+Sans&subset=cyrillic&display=swap">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
         <link rel="stylesheet" href="../assets/css/styles.css">
         <link rel="stylesheet" href="../assets/css/reset.css">
-        <title>SipJoy | Продукти</title>
     </head>
 
     <body>
-    
-        <nav class="navbar navbar-expand-lg px-3">
+
+        <nav class="navbar navbar-expand-lg sticky-top">
             <div class="container">
                 <a class="navbar-brand" href="../index.html">
-                    <img src="../assets/media/img/logo.png" alt="SipJoy">
+                    <img src="../assets/media/images/logo.png" alt="SipJoy">
                 </a>
-
                 <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-                    <i class="bi bi-list text-dark"></i>
+                    <span class="navbar-toggler-icon text-dark"></span>
                 </button>
-
                 <div class="collapse navbar-collapse" id="nav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a href="../index.html" class="nav-link">Начало</a></li>
                         <li class="nav-item"><a href="../pages/about.html" class="nav-link">За нас</a></li>
-                        <li class="nav-item"><a href="../pages/products.html" class="nav-link">Продукти</a></li>
+                        <li class="nav-item"><a href="products.html" class="nav-link active">Продукти</a></li>
                         <li class="nav-item"><a href="../pages/contact.html" class="nav-link">Контакти</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
 
-        <section class="container text-center my-5">
-            <h1>Нашите продукти</h1>
-            <p class="text-secondary">Разгледайте нашето разнообразие от напитки</p>
-        </section>
+        <header class="products-hero">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 text-start">
+                        <h1 class="display-3 text-gradient mb-3">Нашата Селекция</h1>
+                        <p class="lead text-light mb-4" style="opacity: 0.9; max-width: 500px;">
+                            Открийте перфектния баланс между природа и иновация. Всяка форма крие уникален вкус, създаден да вдъхновява деня ви.
+                        </p>
+                        <a href="#all-products" class="btn btn-primary px-5 btn-lg shadow-lg">
+                            Разгледай вкусовете
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
 
         <section class="container mt-5">
             <h2 class="mb-4"><i class="bi bi-cup-straw me-2"></i>Млечни напитки</h2>
@@ -46,12 +56,12 @@
             <div class="row g-4">
 
                 <div class="col-md-4">
-                    <div class="product-card card-strawberry">
-                        <img src="../assets/media/img/SJ_strawberryMilk_card.png" class="card-img-top" alt="Ягодова млечна напитка">
-                        
+                    <div class="product-card card-strawberry h-100 text-center">
+                        <img src="../assets/media/images/SJ_strawberryMilk_card.png" class="card-img-top" alt="Ягодова млечна напитка">
+
                         <h5>Ягодова млечна напитка</h5>
                         
-                        <button class="btn mt-3" data-bs-toggle="modal" data-bs-target="#strawberryMilkModal">
+                        <button class="btn card-btn btn-outline-light btn-sm w-100 mt-auto" data-bs-toggle="modal" data-bs-target="#strawberryMilkModal">
                             Вижте повече
                         </button>
                         
@@ -59,24 +69,24 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="product-card card-banana">
-                        <img src="../assets/media/img/SJ_bananaMilk_card.png" class="card-img-top" alt="Бананова млечна напитка">
+                    <div class="product-card card-banana h-100 text-center">
+                        <img src="../assets/media/images/SJ_bananaMilk_card.png" class="card-img-top" alt="Бананова млечна напитка">
 
                         <h5>Бананова млечна напитка</h5>
 
-                        <button class="btn mt-3" data-bs-toggle="modal" data-bs-target="#bananaMilkModal">
+                        <button class="btn card-btn btn-outline-light btn-sm w-100 mt-auto" data-bs-toggle="modal" data-bs-target="#bananaMilkModal">
                             Вижте повече
                         </button>
                     </div>
                 </div>
 
                 <div class="col-md-4">
-                    <div class="product-card card-choco">
-                        <img src="../assets/media/img/SJ_chocolateMilk_card.png" class="card-img-top" alt="Шоколадова млечна напитка">
+                    <div class="product-card card-choco h-100 text-center">
+                        <img src="../assets/media/images/SJ_chocolateMilk_card.png" class="card-img-top" alt="Шоколадова млечна напитка">
   
                         <h5>Шоколадова млечна напитка</h5>
 
-                        <button class="btn mt-3" data-bs-toggle="modal" data-bs-target="#chocolateMilkModal">
+                        <button class="btn card-btn btn-outline-light btn-sm w-100 mt-auto" data-bs-toggle="modal" data-bs-target="#chocolateMilkModal">
                             Вижте повече
                         </button>
                     </div>
@@ -91,24 +101,24 @@
             <div class="row g-4">
 
                 <div class="col-md-6">
-                    <div class="product-card card-strawberry">
-                        <img src="../assets/media/img/SJ_strawberryYogurt_card.png" class="card-img-top" alt="Ягодова йогурт напитка">
+                    <div class="product-card card-strawberry h-100 text-center">
+                        <img src="../assets/media/images/SJ_strawberryYogurt_card.png" class="card-img-top" alt="Ягодова йогурт напитка">
 
                         <h5>Ягодов йогурт</h5>
                         
-                        <button class="btn mt-3" data-bs-toggle="modal" data-bs-target="#strawberryYogurtModal">
+                        <button class="btn card-btn btn-outline-light btn-sm w-100 mt-auto" data-bs-toggle="modal" data-bs-target="#strawberryYogurtModal">
                             Вижте повече
                         </button>
                     </div>
                 </div>
 
                 <div class="col-md-6">
-                    <div class="product-card card-banana">
-                        <img src="" class="img-fluid mb-3" alt="Бананова йогурт напитка">
+                    <div class="product-card card-banana h-100 text-center">
+                        <img src="../assets/media/images/SJ_bananaYogurt_card.png" class="card-img-top" alt="Бананова йогурт напитка">
                         
                         <h5>Бананов йогурт</h5>
                         
-                        <button class="btn mt-3" data-bs-toggle="modal" data-bs-target="#bananaYogurtModal">
+                        <button class="btn card-btn btn-outline-light btn-sm w-100 mt-auto" data-bs-toggle="modal" data-bs-target="#bananaYogurtModal">
                             Вижте повече
                         </button>
                     </div>
@@ -123,36 +133,36 @@
             <div class="row g-4">
 
                 <div class="col-md-4">
-                    <div class="product-card card-vegan">
-                        <img src="" class="img-fluid mb-3" alt="Соева напитка">
+                    <div class="product-card card-vegan h-100 text-center">
+                        <img src="../assets/media/images/SJ_soyMilk_card.png" class="card-img-top" alt="Соева напитка">
                         
                         <h5>Соева напитка</h5>
                             
-                        <button class="btn mt-3" data-bs-toggle="modal" data-bs-target="#soyMilkModal">
+                        <button class="btn card-btn btn-outline-light btn-sm w-100 mt-auto" data-bs-toggle="modal" data-bs-target="#soyMilkModal">
                             Вижте повече
                         </button>
                     </div>
                 </div>
 
                 <div class="col-md-4">
-                    <div class="product-card card-vegan">
-                        <img src="" class="img-fluid mb-3" alt="Бадемова напитка">
+                    <div class="product-card card-vegan h-100 text-center">
+                        <img src="../assets/media/images/SJ_almondMilk_card.png" class="card-img-top" alt="Бадемова напитка">
     
                         <h5>Бадемова напитка</h5>
                             
-                        <button class="btn mt-3" data-bs-toggle="modal" data-bs-target="#almondMilkModal">
+                        <button class="btn card-btn btn-outline-light btn-sm w-100 mt-auto" data-bs-toggle="modal" data-bs-target="#almondMilkModal">
                             Вижте повече
                         </button>
                     </div>
                 </div>
 
                 <div class="col-md-4">
-                    <div class="product-card card-vegan">
-                        <img src="" class="img-fluid mb-3" alt="Лешникова напитка">
+                    <div class="product-card card-vegan h-100 text-center">
+                        <img src="../assets/media/images/SJ_hazelnutMilk_card.png" class="card-img-top" alt="Лешникова напитка">
                         
                         <h5>Лешникова напитка</h5>
                         
-                        <button class="btn mt-3" data-bs-toggle="modal" data-bs-target="#hazelnutMilkModal">
+                        <button class="btn card-btn btn-outline-light btn-sm w-100 mt-auto" data-bs-toggle="modal" data-bs-target="#hazelnutMilkModal">
                             Вижте повече
                         </button>
                     </div>
@@ -161,88 +171,15 @@
             </div>
         </section>
 
-        <footer class="text-center mt-5 p-4">
-            <p>&copy; 2026 SipJoy</p>
-            <p>Радост във всяка глътка</p>
+        <footer class="footer text-center py-4">
+            <div class="container border-top border-secondary pt-4">
+                <p class="mb-1">&copy; 2026 SipJoy. Всички права запазени.</p>
+                <p class="small slogan text-muted">Радост във всяка глътка</p>
+            </div>
         </footer>
 
-        <div class="modal fade" id="strawberryMilkModal">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content bg-dark text-white">
-
-                    <div class="modal-header">
-                        <h5 class="modal-title">🍓 Ягодова млечна напитка</h5>
-                        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                    </div>
-
-                    <div class="modal-body text-center">
-                        <img src="../assets/media/img/SJ_strawberryMilk_modal.png" class="img-fluid mb-3" alt="">
-                        <p>Освежаваща напитка с истински ягоди и прясно краве мляко.</p>
-                        <p><strong>Съставки:</strong> мляко, ягоди, захар</p>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="bananaMilkModal">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content bg-dark text-white">
-
-                    <div class="modal-header">
-                        <h5 class="modal-title">Бананова млечна напитка</h5>
-                        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                    </div>
-
-                    <div class="modal-body text-center">
-                        <img src="../assets/media/img/SJ_bananaMilk_modal.png" class="img-fluid mb-3" alt="">
-                        <p>Освежаваща напитка с истински банани и прясно краве мляко.</p>
-                        <p><strong>Съставки:</strong> мляко, банани, захар</p>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="chocolateMilkModal">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content bg-dark text-white">
-
-                    <div class="modal-header">
-                        <h5 class="modal-title">Шоколадова млечна напитка</h5>
-                        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                    </div>
-
-                    <div class="modal-body text-center">
-                        <img src="../assets/media/img/SJ_chocolateMilk_modal.png" class="img-fluid mb-3" alt="">
-                        <p>Освежаваща напитка от прясно краве мляко с вкус на шоколад.</p>
-                        <p><strong>Съставки:</strong> мляко, какао, захар</p>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="strawberryYogurtModal">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content bg-dark text-white">
-
-                    <div class="modal-header">
-                        <h5 class="modal-title">Ягодова йогурт напитка</h5>
-                        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                    </div>
-
-                    <div class="modal-body text-center">
-                        <img src="../assets/media/img/SJ_strawberryYogurt_modal.png" class="img-fluid mb-3" alt="">
-                        <p>Освежаваща йогурт напитка с вкус на ягода.</p>
-                        <p><strong>Съставки:</strong> йогурт, ягоди, захар</p>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="script.js"></script>
 
     </body>
 
