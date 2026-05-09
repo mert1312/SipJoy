@@ -10,6 +10,70 @@
     --glass: rgba(255, 255, 255, 0.05);
 }
 
+/* === INDEX.HTML === */
+.hero-section {
+    height: 90vh;
+    position: relative;
+    overflow: hidden;
+    background-color: #000; /* Резервен цвят */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Видеото запълва целия екран без разтягане */
+    filter: brightness(0.6) contrast(1.1); /* Прави видеото малко по-тъмно */
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 100%);
+    z-index: 2;
+}
+
+.video-overlay::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 250px; /* Дължината на преливането */
+    background: linear-gradient(to bottom, transparent, #0d0d0d); /* Прелива към цвета на следващата секция */
+    pointer-events: none;
+}
+
+/* Стил за логото, за да изпъква върху видеото */
+.hero-logo-container {
+    position: relative;
+    z-index: 3; /* Трябва да е над overlay-а */
+    text-align: center; /* Центрира съдържанието вътре */
+}
+
+.hero-logo {
+    max-width: 250px; /* Можеш леко да го увеличиш, ако е нужно */
+    height: auto;
+    filter: drop-shadow(0 0 15px rgba(0,0,0,0.5));
+    /* Премахваме align-items оттук, то е за флекс контейнери */
+    display: block;
+    margin: 0 auto; /* Двойна застраховка за центриране */
+}
+
 body {
     background-color: var(--bg-dark);
     color: var(--text-light);
@@ -86,106 +150,7 @@ h1, h2, h3, .navbar-brand {
     color: var(--accent) !important;
 }
 
-/* === HERO СЕКЦИЯ === */
-.hero-section {
-    height: 90vh;
-    position: relative;
-    overflow: hidden;
-    background-color: #000; /* Резервен цвят */
-}
-
-.video-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-
-#hero-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Видеото запълва целия екран без разтягане */
-    filter: brightness(0.6) contrast(1.1); /* Прави видеото малко по-тъмно */
-}
-
-.video-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 100%);
-    z-index: 2;
-}
-
-/* About hero */
-.about-hero {
-    height: 65vh; /* Малко по-ниско от началната страница */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    
-    /* Слагаме ДВА градиента за максимален ефект: 
-       1. Единият затъмнява цялата снимка леко, за да се чете текста.
-       2. Вторият прелива в плътно черно най-отдолу. */
-    background: 
-        linear-gradient(to bottom, rgba(13, 13, 13, 0.3) 0%, rgba(13, 13, 13, 1) 100%), 
-        url('../media/images/about-hero.jpg');
-    
-    background-size: cover;
-    background-position: center;
-    background-attachment: scroll; /* Можеш да пробваш 'fixed' за паралакс ефект */
-
-    /* Това гарантира, че няма да има бяла линия между Hero-то и следващата секция */
-    margin-bottom: -1px;
-}
-
-/* Фина златиста линия под заглавието за консистентност */
-.title-separator {
-    width: 60px;
-    height: 3px;
-    background: var(--accent);
-    margin: 20px auto;
-    border-radius: 2px;
-}
-
-/* Products hero */
-.products-hero {
-    height: 75vh;
-    display: flex;
-    align-items: center; /* Центрира текста вертикално */
-    position: relative;
-    overflow: hidden;
-
-    /* Пътят до новото хоризонтално изображение */
-    background-image: 
-        linear-gradient(to right, rgba(13, 13, 13, 0.5) 0%, rgba(13, 13, 13, 0) 50%), /* Затъмнява леко зад текста */
-        linear-gradient(to bottom, rgba(13, 13, 13, 0) 50%, rgba(13, 13, 13, 1) 100%), /* Прелива в черното отдолу */
-        url('../media/images/products-hero.jpg'); /* Увери се, че името на файла съвпада */
-
-    background-size: cover;
-    background-position: center right; /* Важно: позиционира бутилките вдясно */
-    background-repeat: no-repeat;
-}
-
-/* Стил за градиентния текст (ако вече го нямаш от началната страница) */
-.text-gradient {
-    background: linear-gradient(45deg, #ffb703, #ffffff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: bold;
-}
-
-/* Стил за логото, за да изпъква върху видеото */
-.hero-logo {
-    max-width: 200px;
-    filter: drop-shadow(0 0 15px rgba(0,0,0,0.5));
-}
-
-/* Glassmorphism кутия */
+/* GLASSMORPHISM кутия */
 .glass-box {
     background: var(--glass);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -342,35 +307,6 @@ h1, h2, h3, .navbar-brand {
     border-color: var(--accent);
 }
 
-/* Специална адаптация на бутона само когато е вътре в products-hero */
-.products-hero .btn-primary {
-    /* Правим фона на бутона малко по-тъмен/наситен, за да се вижда на белия фон */
-    background: rgba(13, 13, 13, 0.7); 
-    border-color: var(--accent);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-}
-
-.products-hero .btn-primary:hover {
-    background: var(--accent); /* При ховър става напълно златист */
-    color: #000 !important;
-}
-
-/* Контактна Hero Секция */
-.contact-hero {
-    height: 45vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    /* Използваме новото Ripple изображение */
-    background: 
-        linear-gradient(to bottom, rgba(13, 13, 13, 0) 60%, rgba(13, 13, 13, 1) 100%), 
-        url('../media/images/contact-hero.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
 /* Стилизиране на иконите за вкусове */
 .flavor-icons .icon-item {
     transition: transform 0.3s ease;
@@ -443,26 +379,212 @@ h1, h2, h3, .navbar-brand {
     text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
-/* Помощни класове за иконите в About страницата */
-.var-accent-color {
-    color: var(--accent) !important;
+
+/* === ABOUT.HTML === */
+.about-hero {
+    height: 65vh; /* Малко по-ниско от началната страница */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    
+    /* Слагаме ДВА градиента за максимален ефект: 
+       1. Единият затъмнява цялата снимка леко, за да се чете текста.
+       2. Вторият прелива в плътно черно най-отдолу. */
+    background: 
+        linear-gradient(to bottom, rgba(13, 13, 13, 0.3) 0%, rgba(13, 13, 13, 1) 100%), 
+        url('../media/images/about-hero.jpg');
+    
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll; /* Можеш да пробваш 'fixed' за паралакс ефект */
+
+    /* Това гарантира, че няма да има бяла линия между Hero-то и следващата секция */
+    margin-bottom: -1px;
 }
 
-/* Стилизиране на секцията "Защо да изберете нас" */
-.glass-box i {
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
-    transition: transform 0.3s ease;
+/* Фина златиста линия под заглавието за консистентност */
+.title-separator {
+    width: 60px;
+    height: 3px;
+    background: var(--accent);
+    margin: 20px auto;
+    border-radius: 2px;
 }
 
-.glass-box div:hover i {
-    transform: scale(1.2);
+.video-container {
+    position: relative;
+    border-radius: 30px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05); /* Лека "стъклена" рамка */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Специфични цветове за иконите (ако искаш да са цветни, както в HTML-а) */
-.text-success { color: #2ec4b6 !important; } /* Свежо ментово за веган */
-.text-danger { color: #e71d36 !important; }  /* Пулсиращо червено */
-.text-primary { color: #4361ee !important; } /* Синьо за рециклиране */
-.text-warning { color: var(--accent) !important; } /* Златисто за енергия */
+.video-container video {
+    width: 100%;
+    display: block;
+    border-radius: 20px;
+    transition: transform 0.5s ease;
+}
+
+.video-container:hover video {
+    transform: scale(1.02); /* Лек зум при посочване */
+}
+
+/* Стил за самите икони от Flaticon */
+.flaticon-img {
+    width: 64px; /* Нагласи размера според нуждите ти */
+    height: 64px;
+    object-fit: contain;
+    /* Твоят drop-shadow ефект, адаптиран за картинка */
+    filter: drop-shadow(0 0 10px rgba(255, 183, 3, 0.3));
+    transition: transform 0.3s ease, filter 0.3s ease;
+    z-index: 2;
+    position: relative;
+}
+
+/* Hover ефект за картинката - използваме твоята логика за scale */
+.glass-box:hover .flaticon-img {
+    transform: scale(1.15) rotate(5deg); /* Добавихме леко завъртане за динамика */
+    filter: drop-shadow(0 0 15px rgba(255, 183, 3, 0.6));
+}
+
+/* Сиянието зад картинката (glow) */
+.icon-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px; height: 40px;
+    background: var(--accent);
+    filter: blur(30px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.glass-box:hover .icon-wrapper::after {
+    opacity: 0.3;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px 30px;
+    border-radius: 25px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    height: 100%;
+}
+
+.feature-icon img {
+    width: 50px;
+    margin-bottom: 20px;
+    filter: grayscale(1) opacity(0.7); /* По подразбиране са по-тихи */
+    transition: all 0.3s ease;
+}
+
+.feature-card h4 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+}
+
+/* Hover Ефекти */
+.feature-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    transform: translateY(-10px);
+    border-color: var(--accent);
+}
+
+.feature-card:hover .feature-icon img {
+    filter: grayscale(0) opacity(1); /* Светват в цвят при hover */
+    transform: scale(1.1);
+}
+
+
+/* === PRODUCTS.HTML === */
+.products-hero {
+    height: 75vh;
+    display: flex;
+    align-items: center; /* Центрира текста вертикално */
+    position: relative;
+    overflow: hidden;
+
+    /* Пътят до новото хоризонтално изображение */
+    background-image: 
+        linear-gradient(to right, rgba(13, 13, 13, 0.5) 0%, rgba(13, 13, 13, 0) 50%), /* Затъмнява леко зад текста */
+        linear-gradient(to bottom, rgba(13, 13, 13, 0) 50%, rgba(13, 13, 13, 1) 100%), /* Прелива в черното отдолу */
+        url('../media/images/products-hero.jpg'); /* Увери се, че името на файла съвпада */
+
+    background-size: cover;
+    background-position: center right; /* Важно: позиционира бутилките вдясно */
+    background-repeat: no-repeat;
+}
+
+/* Стил за градиентния текст (ако вече го нямаш от началната страница) */
+.text-gradient {
+    background: linear-gradient(45deg, #ffb703, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+/* Специална адаптация на бутона само когато е вътре в products-hero */
+.products-hero .btn-primary {
+    /* Правим фона на бутона малко по-тъмен/наситен, за да се вижда на белия фон */
+    background: rgba(13, 13, 13, 0.7); 
+    border-color: var(--accent);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+.products-hero .btn-primary:hover {
+    background: var(--accent); /* При ховър става напълно златист */
+    color: #000 !important;
+}
+
+.filter-btn {
+    background: transparent;
+    color: var(--text-light);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: #000;
+    box-shadow: 0 4px 15px rgba(255, 183, 3, 0.3);
+}
+
+
+/* === CONTACT.HTML === */
+/* Контактна Hero Секция */
+.contact-hero {
+    height: 45vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* Използваме новото Ripple изображение */
+    background: 
+        linear-gradient(to bottom, rgba(13, 13, 13, 0) 60%, rgba(13, 13, 13, 1) 100%), 
+        url('../media/images/contact-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
 /* Социални линкове */
 .social-link {
